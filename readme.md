@@ -1,19 +1,19 @@
 [![Build Status](https://travis-ci.com/skycoin/skycoin-lite.svg?branch=master)](https://travis-ci.com/skycoin/skycoin-lite)
 
-# Skycoin Liteclient
+# MDL Liteclient
 
-This repository contains a liteclient for Skycoin written in Go. At the moment it is only used to compile
+This repository contains a liteclient for MDL written in Go. At the moment it is only used to compile
 an [Android Archive](https://developer.android.com/studio/projects/android-library.html)
 and a JS library with [gopherjs](https://github.com/gopherjs/gopherjs).
 
-Skycoin Liteclient supports go1.10+.
+MDL Liteclient supports go1.10+.
 
 ## Compiling Android aar and jar
 
 For the compilation process to Android Archive, we use [Go Mobile](https://github.com/golang/mobile).
 
 ```bash
-$ gomobile bind -target=android github.com/skycoin/skycoin-lite/mobile
+$ gomobile bind -target=android github.com/MDLlife/mdl-lite/mobile
 ```
 
 ## Compile javascript library
@@ -28,12 +28,12 @@ After compiling, the main.js and main.js.map files will be created/updated in th
 The javascript library is created starting from [gopher/main.go](gopher/main.go). The Android library is
 created starting from [mobile/api.go](mobile/api.go).
 
-### Updating the skycoin code
+### Updating the MDL code
 
 To mantain compatibility, avoid errors and facilitate the update process, the
-[Skycoin](https://github.com/skycoin/skycoin) code is added as vendored dependency through `dep`. However,
-if the Skycoin code is updated using dep, `make build-js` and `make build-js-min` will stop working,
-because Skycoin uses dependencies that are not compatible with gopherjs. To solve this problem, it is
+[MDL](https://github.com/MDLlife/MDL) code is added as vendored dependency through `dep`. However,
+if the MDL code is updated using dep, `make build-js` and `make build-js-min` will stop working,
+because MDL uses dependencies that are not compatible with gopherjs. To solve this problem, it is
 necessary to execute `make fix-skycoin-dependency` after updating the dependencies with dep.
 
 ### Formatting
